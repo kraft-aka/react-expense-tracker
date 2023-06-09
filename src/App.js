@@ -27,13 +27,6 @@ function App() {
     <div>
       <h2>Hello World!</h2>
       <Expenses items={expenses}/>
-
-      <DefaultComponent
-        city={"Frankfurt"}
-        postalCode={63067}
-        street={"Krimmerstrasse"}
-        house={10}
-      />
     </div>
   );
 }
