@@ -1,5 +1,5 @@
 import DefaultComponent from "./components/DefaultComponent";
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses";
 
 function App() {
   const expenses = [
@@ -26,11 +26,7 @@ function App() {
   return (
     <div>
       <h2>Hello World!</h2>
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      ></ExpenseItem>
+      <Expenses items={expenses}/>
 
       <DefaultComponent
         city={"Frankfurt"}
