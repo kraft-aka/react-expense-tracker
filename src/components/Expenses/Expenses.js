@@ -22,8 +22,8 @@ export default function (props) {
         selected={filteredYear}
         onExpenseFilter={expenseFilterHandler}
       />
-
-      <ExpensesList item={filteredExpenses} />
+      {filteredExpenses.length === 0 && <p>No items found!</p>}
+      {filteredExpenses.length > 0 && <ExpensesList item={filteredExpenses} />}
     </Card>
   );
 }
