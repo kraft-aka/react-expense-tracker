@@ -5,9 +5,9 @@ import "./ExpensesList.css";
 export default function ExpensesList(props) {
   // if it has items in it, it overrides the content
   console.log(props);
-  //  if (props.items.length === 0) {
-  //    return (<h2 className="expenses-list__fallback">No Expenses found!</h2>);
-  //  }
+  // if (props.items.length === 0) {
+  //   return <h2 className="expenses-list__fallback">No Expenses found!</h2>;
+  // }
 
   return (
     <ul className="expenses-list">

@@ -6,6 +6,9 @@
   max-width: 95%;
 }
 
-p {
-  color: #fff
+
+
+.expenses-list__fallback {
+  color: white;
+  text-align: center;
 }
