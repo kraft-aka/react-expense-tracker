@@ -6,6 +6,9 @@ export default function ExpenseForm(props) {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
+  // variable to show add expenseFrom
+  const [isShown, setIsShown] = useState(false);
+
   function titleChangeHandler(e) {
     setEnteredTitle(e.target.value);
   }
@@ -27,10 +30,27 @@ export default function ExpenseForm(props) {
       date: new Date(enteredDate),
     };
     console.log(expenseData);
-    props.onSaveExpenseData(expenseData)
+    props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+    setIsShown(false);
+  }
+
+  function showHandler() {
+    setIsShown(true);
+  }
+
+  function cancelHandler(e) {
+    e.preventDefault();
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+    setIsShown(false);
+  }
+
+  if (!isShown) {
+    return <button onClick={() => setIsShown(true)}>Add New Expenses</button>;
   }
 
   return (
@@ -38,7 +58,11 @@ export default function ExpenseForm(props) {
       <div className="new-expense__constrols">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -62,7 +86,12 @@ export default function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button className="submit">Add Expense</button>
+        <button className="submit" type="button" onClick={cancelHandler}>
+          Cancel
+        </button>
+        <button className="submit" type="submit">
+          Add Expense
+        </button>
       </div>
     </form>
   );
