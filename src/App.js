@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-
 
 let DUMMY_DATA = [
   {
@@ -26,15 +25,21 @@ let DUMMY_DATA = [
 ];
 
 function App() {
+  // const retrievedItem = JSON.parse(localStorage.getItem("item"));
+  // const [item, setItem] = useState(retrievedItem);
   const [expenses, setExpenses] = useState(DUMMY_DATA);
 
   function addExpenseHandler(expense) {
-    setExpenses(prevExpenses => {
-      return [ expense, ...prevExpenses]
-    })
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
   }
 
- 
+  // useEffect(() => {
+  //   localStorage.setItem("item", JSON.stringify(expenses));
+  // }, []);
+  // console.log(expenses)
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
